@@ -18,7 +18,7 @@ class PostController extends AppController {
 
 	public function actionIndex(){
 		if( Yii::$app->request->isAjax){
-			debug($_POST);
+			debug(Yii::$app->request->post());
 			return 'test';
 		}
 
@@ -29,6 +29,16 @@ class PostController extends AppController {
 		// создаем объект модели TestForm
 		$model = new TestForm();
 
+		// проверяем, есть ли данные
+		if( $model->load(Yii::$app->request->post()) ){
+			// если данные по валидированные
+			if( $model->validate() ){
+				Yii::$app->session->setFlash('success', 'Данные приняты');
+				return $this->refresh();
+			}else{
+				Yii::$app->session->setFlash('error', 'Ошибка');
+			}
+		}
 
 		return $this->render('test', compact('model'));
 	}

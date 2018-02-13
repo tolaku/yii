@@ -29,7 +29,7 @@ class TestForm extends Model{
 
 	public function myRule($attr){
 		if( !in_array($this->$attr, ['hello', 'world']) ){
-			$this->addError($attrs, 'Wrong!');
+			$this->addError($attr, 'Wrong!');
 		}
 	}
 	
