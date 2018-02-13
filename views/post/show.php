@@ -1,6 +1,9 @@
 <h1>Show Action</h1>
 
 <?php debug($cats); ?>
+<?php foreach ($cats as $cat) {
+		
+} ?>
 
 <button class="btn btn-success" id="btn">Нажми...</button>
 
