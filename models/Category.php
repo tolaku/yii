@@ -8,6 +8,10 @@ class Category extends ActiveRecord{
 	public static function tableName(){
 		return 'categories';
 	}
+
+	public function getProducts(){
+		return->hasMany(Product::className(), ['parent' => 'id']);
+	}
 }
 
  ?>
