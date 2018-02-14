@@ -48,7 +48,18 @@ class PostController extends AppController {
 		$this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевики .....']);
 		$this->view->registerMetaTag(['name' => 'description', 'content' => 'Описание статьи .....']);
 
-		$cats = Category::find()->all();
+		//$cats = Category::find()->all();
+		//$cats = Category::find()->orderBy(['id' => SORT_DESC])->all(); получаем сортировку
+		//$cats = Category::find()->asArray()->all(); получаем виде массива
+		//$cats = Category::find()->asArray()->where('parent=691')->all();
+		//$cats = Category::find()->asArray()->where(['parent' => 691])->all();
+		//$cats = Category::find()->asArray()->where(['like', 'title', 'pp'])->all();
+		//$cats = Category::find()->asArray()->where(['<=', 'id', 695])->all();
+		//$cats = Category::find()->asArray()->where('parent=691')->limit(1)->one();
+		//$cats = Category::find()->asArray()->where('parent=691')->count(); 
+		//$cats = Category::findOne(['parent' => 691]);
+		$query = "SELECT * FROM categories WHERE title LIKE :search";
+		$cats = Category::findBySql($query, [':search' => '%pp%'])->all();
 
 		return $this->render('show', compact('cats'));
 	}
