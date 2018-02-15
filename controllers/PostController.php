@@ -22,17 +22,17 @@ class PostController extends AppController {
 			return 'test';
 		}
 
-		$this->view->title = 'Все статьи';
-		$this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевики .....']);
-		$this->view->registerMetaTag(['name' => 'description', 'content' => 'Описание статьи .....']);
-
 		// создаем объект модели TestForm
 		$model = new TestForm();
+		/*$model->name = 'Автор';
+		$model->email = 'mail@mail.com';
+		$model->text = 'Текст сообщения';
+		$model->save();*/
 
 		// проверяем, есть ли данные
 		if( $model->load(Yii::$app->request->post()) ){
 			// если данные по валидированные
-			if( $model->validate() ){
+			if( $model->save() ){
 				Yii::$app->session->setFlash('success', 'Данные приняты');
 				return $this->refresh();
 			}else{
