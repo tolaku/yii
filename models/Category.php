@@ -10,7 +10,7 @@ class Category extends ActiveRecord{
 	}
 
 	public function getProducts(){
-		return->hasMany(Product::className(), ['parent' => 'id']);
+		return $this->hasMany(Product::className(), ['parent' => 'id']);
 	}
 }
 
