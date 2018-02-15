@@ -22,6 +22,12 @@ class PostController extends AppController {
 			return 'test';
 		}
 
+		/*$post = TestForm::findOne(5);*/
+		/*$post->name = 'Анатолий';
+		$post->save();*/
+		/*$post->delete();*/
+		TestForm::deleteAll(['>', 'id', 3]);
+
 		// создаем объект модели TestForm
 		$model = new TestForm();
 		/*$model->name = 'Автор';
