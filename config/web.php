@@ -50,14 +50,14 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix' => '.html',
+            /*'suffix' => '.html',*/
             'rules' => [
                 /*[
                     'pattern' => '',
                     'route' => 'site/index',
                     'suffix' => ''
                 ],*/
-                '<action:(about|contact|login)>' => 'site/<action>',
+                /*'<action:(about|contact|login)>' => 'site/<action>',*/
             ],
         ],
         
