@@ -22,6 +22,7 @@ use yii\helpers\Html; // кнопка для формы
 <?php $form = ActiveForm::begin(['options' => ['id' => 'testForm']]) ?>
 <?= $form->field($model, 'name') ?>
 <?= $form->field($model, 'email') ?>
+<?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?> <!-- календарь -->
 <?= $form->field($model, 'text')->textarea(['rows' => 5]) ?>
 <?= Html::submitButton('Отправить', ['class' => 'btn btn-success']) ?>
 <?php ActiveForm::end() ?>
