@@ -57,4 +57,11 @@ return array (
       '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
     ),
   ),
+  'mihaildev/ckeditor' => array (
+    'name' => 'mihaildev/ckeditor',
+    'version' => '2',
+    'alias' => array (
+        '@mihaildev/ckeditor' => $vendorDir . '/mihaildev/ckeditor',
+    ),
+  ),
 );
